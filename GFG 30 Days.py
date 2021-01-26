@@ -3,6 +3,8 @@
 
 # In[1]:
 
+GFG 30 Days:
+
 
 Geek and his classmates are playing a prank on their Computer Science teacher. They change places every time the teacher turns to look at the blackboard. 
 Each of the N students in the class can be identified by a unique roll number X and each desk has a number i associated with it. Only one student can sit on one desk. 
@@ -20,8 +22,7 @@ Constraints:
 0 ≤ a[i] ≤ N-1
 
 class Solution:
-    def prank(self, a, n): 
-        #code here
+    def prank( a, n): 
         n = len(a)
         for i in range (n):
             a[i] = a[i] + (a[a[i]]%n)*n

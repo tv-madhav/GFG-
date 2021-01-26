@@ -1,2 +1,3 @@
-# GFG-
-geeks for geeks 30 days challenge
+# GFG 
+geeks for geeks 30 days challenge Jan 2021
+1. rearrage geek with classmate.(Array)

@@ -29,11 +29,19 @@ class Solution:
         for i in range (n) :
             a[i] = int(a[i]/n)
         return(a)
-        
-
 
 # In[ ]:
+Nth Natural Number
+Given a positive integer N. You have to find Nth natural number after removing all the numbers containing digit 9 .
 
+class Solution:
+    def findNth(self,N):
+        #code here
+        a = ""
+        while(N):
+            a = str(N%9) + a
+            N = N//9
+        return int(a)
 
 
 

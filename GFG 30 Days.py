@@ -42,6 +42,22 @@ class Solution:
             a = str(N%9) + a
             N = N//9
         return int(a)
-
+       
+       
+  #IN[ ]:
+  
+   Smallest Positive Integer that can not be represented as Sum
+  Given an array of size N, find the smallest positive integer value that cannot be represented as sum of some elements from the array.
+  
+  class Solution:
+    def smallestpositive(self, array, n): 
+        # Your code goes here  
+        ans = 1
+        array.sort()
+        for i in range(n):
+            if (array[i] <= ans):
+                ans = ans + array[i]
+        return ans
+                
 
 

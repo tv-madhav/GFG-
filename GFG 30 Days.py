@@ -59,5 +59,36 @@ class Solution:
                 ans = ans + array[i]
         return ans
                 
+     #IN[ ]:
+     
+     Number of minimum picks to get 'k' pairs of socks from a drawer
+     A drawer contains socks of n different colours. The number of socks available of ith colour is given by a[i] where a is an array of n elements. 
+     Tony wants to take k pairs of socks out of the drawer. However, he cannot see the colour of the sock that he is picking. You have to tell what is 
+     the minimum number of socks Tony has to pick in one attempt from the drawer such that he can be absolutely sure, without seeing their colours, 
+     that he will have at least k matching pairs.
+     
+     
 
+class Solution:
+    def find_min(self, a, n, k):
+        #Code Here
+        sock = 0
+        total_pairs = 0
+        for i in range(0,n):
+            total_pairs += a[i]//2;
+            
+            if ( a[i] % 2 == 0):
+                sock += (a[i]-2)//2;
+            else:
+                sock += (a[i] -1)//2;
+        if (k > total_pairs):
+            return -1;
+        if (k <= sock):
+            return 2*(k-1) + n + 1;
+            
+        return 2*sock + n + (k-sock);
+            
+        
+            
 
+ 

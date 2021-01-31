@@ -30,7 +30,7 @@ class Solution:
             a[i] = int(a[i]/n)
         return(a)
 
-# In[ ]:
+# In[2 ]:
 Nth Natural Number
 Given a positive integer N. You have to find Nth natural number after removing all the numbers containing digit 9 .
 
@@ -44,7 +44,7 @@ class Solution:
         return int(a)
        
        
-  #IN[ ]:
+  #IN[3 ]:
   
    Smallest Positive Integer that can not be represented as Sum
   Given an array of size N, find the smallest positive integer value that cannot be represented as sum of some elements from the array.
@@ -59,7 +59,7 @@ class Solution:
                 ans = ans + array[i]
         return ans
                 
-     #IN[ ]:
+     #IN[4]:
      
      Number of minimum picks to get 'k' pairs of socks from a drawer
      A drawer contains socks of n different colours. The number of socks available of ith colour is given by a[i] where a is an array of n elements. 
@@ -89,7 +89,7 @@ class Solution:
         return 2*sock + n + (k-sock);
        
        
-      #In[ ]
+      #In[5]
       
   Spiral Matrix
   Given a matrix of size N x M. You have to find the Kth element which will obtain while traversing the matrix spirally starting from the top-left corner of the matrix.
@@ -136,4 +136,38 @@ class Solution:
 
             
 
+ #In[6]
+ Coins of Geekland
  
+ In Geekland there is a grid of coins of size N x N. You have to find the maximum sum of coins in any sub-grid of size K x K.
+Note: Coins of the negative denomination are also possible at Geekland.
+ 
+ class Solution:
+    def Maximum_Sum(self, mat, N, K):
+        # Your code goes here
+        sum_mat = [[0 for _ in range(N)] for _ in range(N)]
+        for i in range(N):
+            for a in range(N):
+                sum_mat[i][a] = mat[i][a]
+                if i>0:
+                    sum_mat[i][a] += sum_mat[i-1][a]
+                if a >0:
+                    sum_mat[i][a] += sum_mat[i][a-1]
+                if i >0 and a >0:
+                    sum_mat[i][a] -= sum_mat[i-1][a-1]
+        r=0
+        for i in range(K-1,N):
+            for a in range(K-1,N):
+                value = sum_mat[i][a]
+                if i>K-1:
+                    value -= sum_mat[i-K][a]
+                if a >K-1:
+                    value -= sum_mat[i][a-K]
+                if i >K-1 and a>K-1:
+                    value += sum_mat[i-K][a-K]
+                    
+                r = max(r, value)
+                
+        return r
+                
+            

@@ -5,5 +5,5 @@ geeks for geeks 30 days challenge Jan 2021
   Smallest Positive Integer that can not be represented as Sum
   Number of minimum picks to get 'k' pairs of socks from a drawer
   Spiral Matrix
-
+  Coins of Geekland
 

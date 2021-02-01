@@ -171,3 +171,19 @@ Note: Coins of the negative denomination are also possible at Geekland.
         return r
                 
             
+ #In[6]
+  Valid Pair Sum
+ 
+ Given an array of size N, find the number of distinct pairs {a[i], a[j]} (i != j) in the array with their sum greater than 0.
+       from bisect import bisect_left as lower_bound
+       class Solution:
+           def ValidPair(self, a, n): 
+            # Your code goes here
+            a = sorted(a)
+            res = 0
+            for i in range(n):
+                if (a[i]<=0):
+                    continue
+                j = lower_bound(a,-a[i] + 1) 
+             res += i - j 
+            return res 

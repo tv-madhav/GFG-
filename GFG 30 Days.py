@@ -171,7 +171,7 @@ Note: Coins of the negative denomination are also possible at Geekland.
         return r
                 
             
- #In[6]
+ #In[7]
   Valid Pair Sum
  
  Given an array of size N, find the number of distinct pairs {a[i], a[j]} (i != j) in the array with their sum greater than 0.
@@ -187,3 +187,33 @@ Note: Coins of the negative denomination are also possible at Geekland.
                 j = lower_bound(a,-a[i] + 1) 
              res += i - j 
             return res 
+           
+           
+      #In[8]   
+      
+      Dam of Candies
+           
+      Geek wants to make a special space for candies on his bookshelf. Currently, it has N books of different heights and unit width. 
+      Help him select 2 books such that he can store maximum candies between them by removing all the other books from between the selected books. 
+      The task is to find out the area between 2 books that can hold the maximum candies without changing the original position of selected books.      
+           
+     class Solution:
+           def maxCandy(self, height, n): 
+               # Your code goes here
+               # two pointers
+               maximum = 0
+               a = 0
+               b = n-1
+               while(a<b):
+                   if (height[a]<height[b]):
+                       maximum = max(maximum, (b-a-1)*height[a])
+                       a += 1
+                   elif(height[a]>height[b]):
+                        maximum = max(maximum, (b-a-1)*height[b])
+                        b -= 1
+                   else:
+                       maximum = max(maximum, (b-a-1)*height[a])
+                       a += 1
+                       b -= 1
+
+               return maximum

@@ -217,3 +217,52 @@ Note: Coins of the negative denomination are also possible at Geekland.
                        b -= 1
 
                return maximum
+              
+         #In[9]           
+              
+              
+      Transfiguration         
+              
+  Professor McGonagall teaches transfiguration at Hogwarts. She has given Harry the task of changing himself into a cat. She explains that the 
+  trick is to analyze your own DNA and change it into the DNA of a cat. The transfigure spell can be used to pick any one character from the DNA string,
+  remove it and insert it in the beginning. 
+  Help Harry calculates minimum number of times he needs to use the spell to change himself into a cat.          
+  
+  
+    class Solution:
+      def transfigure(self, A, B): 
+          # code here 
+          a = len(A)
+          b = len(B)
+          if b != a:
+              return -1
+          count = {}
+          keys = count.keys()
+          for i in A:
+              if i in keys:
+                  count[i] += 1
+              else:
+                  count[i] = 1
+          for i in B:
+              if i in keys:
+                  count[i] -= 1
+              else:
+                  count[i] = 1
+          for i in keys:
+              if count[i]:
+                  return -1
+          ans = 0
+          i = b-1
+          j = b-1
+          while i >= 0:
+              while i>=0  and A[i] != B[j]: 
+                  i -= 1
+                  ans += 1
+
+              # if A[i] and B[j] match 
+              if i >= 0: 
+                  i -= 1
+                  j -= 1
+
+          return ans
+

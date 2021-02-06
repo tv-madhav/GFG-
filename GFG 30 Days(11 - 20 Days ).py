@@ -83,12 +83,7 @@ class Solution:
     
 #In[12]
 
-
-Check Tree Traversal
-
-Given Preorder, Inorder and Postorder traversals of some tree of size N. The task is to check if they are all of the same tree or not.
-    
-    
+Bit Difference
     
    Given an integer array of size  N . You have to find sum of bit differences in all pairs that can be formed from array elements. 
     Bit difference of a pair (x, y) is count of different bits at same positions in binary representations of x and y.
@@ -112,7 +107,11 @@ Given Preorder, Inorder and Postorder traversals of some tree of size N. The tas
                 
    #In[13]             
                 
-            
+      
+      Check Tree Traversal
+        
+        Given Preorder, Inorder and Postorder traversals of some tree of size N. The task is to check if they are all of the same tree or not.
+    
             
             class Solution:
                 def checktree(self, preorder, inorder, postorder, N): 

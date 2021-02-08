@@ -13,3 +13,4 @@ geeks for geeks 30 days challenge Jan 2021.
   Secret Cipher;
   Bit Difference ;
   Check Tree Traversal ;
+   Ruling Pair    ;

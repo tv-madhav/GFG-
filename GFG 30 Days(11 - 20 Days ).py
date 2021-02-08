@@ -143,6 +143,39 @@ Bit Difference
                                         postorder[idx:], N-idx-1); 
 
                     return (ret1 and ret2) 
+                
+                
+                
+                
+                
+    #In[14]            
+                
+    Ruling Pair             
+                
+       Geek Land has a population of N people and each person's ability to rule the town is measured by a numeric value arr[i]. 
+        The two people that can together rule Geek Land must be compatible with each other i.e., the sum of digits of their ability arr[i] must be equal. 
+        Their combined ability should be maximum amongst all the possible pairs of people. Find the combined ability of the Ruling Pair.              
+                
+              
+        class Solution:
+
+            def digitSum(self, n): 
+                sum = 0
+                while (n): 
+                    sum += (n % 10) 
+                    n //= 10
+                return sum
+
+            def RulingPair(self, arr, n): 
+                mp = dict() 
+                ans = -1
+                for i in range(n):  
+                    dSum = self.digitSum(arr[i]) 
+
+                    if (dSum in mp): 
+                        ans = max(ans, mp[dSum] + arr[i]) 
+                    mp[dSum] = max(mp.get(dSum, 0) ,arr[i]) 
+                return ans
 
 
 

@@ -1,5 +1,6 @@
 # GFG 
 geeks for geeks 30 days challenge Jan 2021.
+
   rearrage geek with classmate.(Array);
   Nth Natural Number;
   Smallest Positive Integer that can not be represented as Sum;
@@ -13,4 +14,5 @@ geeks for geeks 30 days challenge Jan 2021.
   Secret Cipher;
   Bit Difference ;
   Check Tree Traversal ;
-   Ruling Pair    ;
+  Ruling Pair    ;
+  Count Triplets ;

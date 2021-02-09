@@ -178,4 +178,42 @@ Bit Difference
                 return ans
 
 
+    #In[15]
+    
+     Count Triplets
+    
+    Given a sorted linked list of distinct nodes (no two nodes have the same data) and an integer X. Count distinct triplets in the list that sum up to given integer X.
+    
+    from collections import deque 
+
+        def countPairs(head,x):
+            if head==None or head.nxt==None or x<2:
+                return 0
+            dq = deque()
+            walk = head
+            while walk:
+                dq.append(walk.val)
+                walk=walk.nxt
+
+            ret=0
+            l=dq.popleft()
+            r=dq.pop()
+            while(1):
+                if l+r==x:
+                    ret+=1
+                if len(dq)==0:
+                    return ret
+                if l+r>x:
+                    l=dq.popleft()
+                else:
+                    r=dq.pop()
+
+        def countTriplets(head,x):
+            ret = 0
+            while head != None:
+                ret += countPairs(head.nxt, x-head.val)
+                head = head.nxt
+            return ret
+
+
 

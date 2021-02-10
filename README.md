@@ -16,3 +16,5 @@ geeks for geeks 30 days challenge Jan 2021.
   Check Tree Traversal ;
   Ruling Pair    ;
   Count Triplets ;
+  Restrictive Candy Crush ;
+        

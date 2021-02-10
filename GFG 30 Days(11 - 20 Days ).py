@@ -216,4 +216,36 @@ Bit Difference
             return ret
 
 
+#In[16]
+
+Restrictive Candy Crush 
+        
+ Given a string S and an integer K, the task is to reduce the string by applying the following operation:
+Choose a group of K consecutive identical characters and remove them. The operation can be performed any number of times until it is no longer possible.       
+        
+        from collections import deque
+            class Solution:
+                def Reduced_String(self, k, s):
+                    # Your code goes here
+                    # return the reduced string
+                    if k ==1:
+                        ret = ''
+                        return ret
+                    q = deque()
+
+                    for c in s:
+                        if len(q) and q[-1][0] == c :
+                            q[-1][1] += 1
+                            if q[-1][1] == k :
+                                q.pop()
+
+                        else:
+                            q.append([c,1])
+                    ret = ''
+                    while len(q):
+                        ret += q[0][0] * q[0][1]
+                        q.popleft()
+                    return ret
+
+
 

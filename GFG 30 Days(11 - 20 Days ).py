@@ -247,5 +247,31 @@ Choose a group of K consecutive identical characters and remove them. The operat
                         q.popleft()
                     return ret
 
+                
+    #In[17]
+    
+    Help Classmates
+    
+    
+    Professor X wants his students to help each other in the chemistry lab. He suggests that every student should help out a classmate who scored 
+    less marks than him in chemistry and whose roll number appears after him. But the students are lazy and they don't want to search too far. 
+    They each pick the first roll number after them that fits the criteria. Find the marks of the classmate that each student picks.
+Note: one student may be selected by multiple classmates.
+    
+        #User function Template for python3
+            from collections import deque
+            class Solution:
+                def help_classmate(self, arr, n):
+                    # Your code goes here
+                    # Return the list
+                    stack = deque()
+                    ans = [-1 for _ in range(n)]
+                    for i in range(n):
+                        while len(stack) and arr[i] < arr[stack[-1]]:
+                            ans[stack.pop()] = arr[i]
+                        stack.append(i)
+
+                    return ans 
+            
 
 

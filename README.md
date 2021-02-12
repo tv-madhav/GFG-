@@ -1,6 +1,8 @@
 # GFG 
 geeks for geeks 30 days challenge Jan 2021.
 
+Python solutions for 30 days practicing problems : 
+
   rearrage geek with classmate.(Array);
   Nth Natural Number;
   Smallest Positive Integer that can not be represented as Sum;
@@ -18,4 +20,5 @@ geeks for geeks 30 days challenge Jan 2021.
   Count Triplets ;
   Restrictive Candy Crush ;
   Help Classmates ;
-        
+  132 Geeky Buildings ;      
+ days 

@@ -318,5 +318,43 @@ Can geek build the three-building recreational zone?
                             l.append(arr[j])
                     return False
 
+                
+                
+  #In[19]
+
+Restricted Pacman
+                
+  In the game of Restricted Pacman, an infinite linear path is given. Pacman has to start at position 0 and eat as many candies as possible.
+In one move he can only jump a distance of either M or N.  If M and N are coprime numbers, find how many candies will be left on the board after the game is over.
+Note: The result is always finite as after a point X every index in the infinite path can be visited.               
+
+            class Solution:
+                def candies(self, m, n): 
+                    i = 0
+                    X = (m * n) - m - n 
+
+                    queue = [] 
+                    queue.append(X) 
+                    set = {X}
+
+                    count = 0
+                    while (len(queue) > 0): 
+
+                        curr = queue[0] 
+                        queue.remove(queue[0]) 
+
+                        count += 1
+
+                        key = curr-m
+                        if (key > 0 and key not in set): 
+                            queue.append(key) 
+                            set.add(key)
+
+                        key = curr-n
+                        if (key > 0 and key not in set): 
+                            queue.append(key) 
+                            set.add(key)
+
+                    return count 
 
 

@@ -21,4 +21,4 @@ Python solutions for 30 days practicing problems :
   Restrictive Candy Crush ;
   Help Classmates ;
   132 Geeky Buildings ;      
- days 
+  Restricted Pacman ;

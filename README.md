@@ -22,5 +22,8 @@ Python solutions for 30 days practicing problems :
   Help Classmates ;
   132 Geeky Buildings ;      
   Restricted Pacman ;
-  Valentine Sum 
+  Valentine Sum ;
+  Corona Vaccine ;
+  Shortest Range In BST ;
+  
 

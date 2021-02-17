@@ -114,6 +114,29 @@ class Solution:
                     cntzero+=1
                 i+=1
         return (x,y)
+    
+    
+    
+    #In[22]
+    
+    Lucy's Neighbours
 
+        Lucy lives in house number X. She has a list of N house numbers in the society. Distance between houses can be determined by studying the difference between house numbers. 
+        Help her find out K's closest neighbors.
+        Note: If two houses are equidistant and Lucy has to pick only one, the house with the smaller house number is given preference.
 
-
+class Solution:
+    def Kclosest(self, arr, n, x, k):
+        # Your code goes here
+        max_heap = [ ( -1*abs(x-arr[i]) , -1*arr[i] ) for i in range(k) ]
+        heapq.heapify(max_heap)
+        for i in range(k,n):
+            dist = -1*max_heap[0][0]
+            hno  = -1*max_heap[0][1]
+            if abs(arr[i]-x)<dist or ( abs(arr[i]-x)==dist and arr[i]<hno ):
+                heapq.heappop(max_heap)
+                heapq.heappush( max_heap, ( -1*abs(x-arr[i]) , -1*arr[i] ) )
+        
+        ret=[ -1*x[1] for x in max_heap]
+        ret.sort()
+        return ret

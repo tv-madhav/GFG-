@@ -25,5 +25,6 @@ Python solutions for 30 days practicing problems :
   Valentine Sum ;
   Corona Vaccine ;
   Shortest Range In BST ;
+  Lucy's Neighbours ;
   
 

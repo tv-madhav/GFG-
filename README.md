@@ -26,5 +26,6 @@ Python solutions for 30 days practicing problems :
   Corona Vaccine ;
   Shortest Range In BST ;
   Lucy's Neighbours ;
+  Spidey Sense ;
   
 

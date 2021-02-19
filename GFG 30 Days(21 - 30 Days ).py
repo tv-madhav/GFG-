@@ -117,7 +117,7 @@ class Solution:
     
     
     
-    #In[22]
+    #In[23]
     
     Lucy's Neighbours
 
@@ -140,3 +140,52 @@ class Solution:
         ret=[ -1*x[1] for x in max_heap]
         ret.sort()
         return ret
+    
+    
+    
+  #In[25]
+
+ Spidey Sense 
+
+Spiderman is stuck in a difficult situation. His arch-enemy the Green Goblin has planted several of his infamous Pumpkin Bombs in 
+various locations in a building. Help Spiderman activate his Spidey Sense and identify the impact zones. 
+He has a blueprint of the building which is a M x N matrix that is filled with the characters ‘O’, ‘B’, and ‘W’ where: 
+‘O’ represents an open space.
+‘B’ represents a bomb.
+‘W’ represents a wall.
+You have to replace all of the O’s (open spaces) in the matrix with their shortest distance from a bomb without being able to go 
+through any walls. Also, replace the bombs with 0 and walls with -1 in the resultant matrix. If no path exists between a bomb and an 
+open space replace the corresponding 'O' with -1.
+
+
+    
+from collections import deque
+
+dr = [-1,0,0,1]
+dc = [0,-1,1,0]
+class Solution:
+    def findDistance(self, matrix, m, n):
+        # Your code goes here
+        ret = [ [-1 for _ in range(n)] for _ in range(m) ]
+        q = deque()
+    
+        for i in range(m):
+            for j in range(n):
+                if matrix[i][j] == 'B':
+                    ret[i][j] = 0
+                    q.append((i,j))
+    
+        while len(q):
+            r=q[0][0]
+            c=q[0][1]
+            q.popleft()
+    
+            for i in range(4):
+                nextr=r+dr[i]
+                nextc=c+dc[i]
+                if nextr>=0 and nextr<m and nextc>=0 and nextc<n:
+                    if ret[nextr][nextc]==-1 and matrix[nextr][nextc]=='O':
+                        ret[nextr][nextc] = ret[r][c]+1
+                        q.append((nextr,nextc))
+        return ret
+        

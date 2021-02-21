@@ -284,4 +284,46 @@ class Solution:
             if (independent[i] == 0):
                 ans = max(ans, self.dfs(i, duration));
     
-        return ans;
+        return ans
+    
+    
+#In[26]
+
+Police and Thives
+
+Given an array of size n such that each element contains either a 'P' for policeman or a 'T' for thief. Find the maximum number of thieves that can be caught by the police. 
+Keep in mind the following conditions :
+
+Each policeman can catch only one thief.
+A policeman cannot catch a thief who is more than K units away from him.
+    
+    
+    
+class Solution:
+    def catchThieves(self, arr, n, k): 
+        # code here 
+        i = 0
+        l = 0
+        r = 0
+        result = 0
+        thief = []
+        police = []
+        while i < n :
+            if arr[i] == 'P':
+                police.append(i)
+            elif arr[i] == 'T':
+                thief.append(i)
+            i += 1
+            
+        while l < len(thief) and r < len(police):
+            if (abs(thief[l] - police[r]) <= k):
+                result +=1
+                l += 1
+                r += 1
+                
+            elif thief[l] < police[r]:
+                l += 1
+            else:
+                r +=1
+                
+        return result

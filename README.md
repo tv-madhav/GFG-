@@ -28,4 +28,5 @@ Python solutions for 30 days practicing problems :
   Lucy's Neighbours ;
   Spidey Sense ;
   Project Manager ;
+  Police and Thieves ; (greedy algorithm)
 

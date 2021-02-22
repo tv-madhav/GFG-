@@ -29,4 +29,5 @@ Python solutions for 30 days practicing problems :
   Spidey Sense ;
   Project Manager ;
   Police and Thieves ; (greedy algorithm)
+  Water the Plants ;
 

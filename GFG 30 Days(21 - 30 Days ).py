@@ -363,3 +363,78 @@ class Solution:
             target=max_range+1
             i+=1
         return sprinklers_on
+    
+    
+    
+    #In[29]
+    
+    Elixir of Life
+    
+    Flamel is making the Elixir of Life but he is missing a secret ingredient, a set of contiguous plants (substring) from the Garden of Eden. 
+    The garden consists of various plants represented by string S where each letter represents a different plant.  
+    But the prophecy has predicted that the correct set of plants required to make the potion will appear in the same contiguous pattern (substring) at 
+    the beginning of the forest (prefix), the end of the forest (suffix), and will also be the most frequent sequence present in the entire forest.
+
+    Identify the substring of plants required to make the elixir and find out the number of times it appears in the forest. 
+    
+    class Solution:
+    def z_function(self, s):
+        n = len(s)
+    
+        z = [0] * n
+    
+        l = r = 0
+        for i in range(1, n):
+            if i <= r:
+                z[i] = min(r - i + 1, z[i - l])
+    
+            while i + z[i] < n and s[z[i]] == s[i + z[i]]:
+                z[i] += 1
+    
+            if i + z[i] - 1 > r:
+                l = i
+                r = i + z[i] - 1
+    
+        return z
+    
+    
+    def update(self, idx, val, bit, n):
+        if idx == 0:
+            return
+        while idx <= n:
+            bit[idx] += val
+            idx += (idx & - idx)
+    
+    
+    def pref(self, idx, bit):
+        ans = 0
+        while idx > 0:
+            ans += bit[idx]
+            idx -= (idx & - idx)
+    
+        return ans
+    
+    
+    def maxFrequency(self, s):
+        n = len(s)
+        z = self.z_function(s)
+    
+        bit = [0] * (n + 5)
+    
+        for i in range(1, n):
+            self.update(z[i], 1, bit, n)
+    
+        m = defaultdict(int)
+    
+        for i in range(n - 1, 0, -1):
+            if z[i] != n - i:
+                continue
+    
+            m[z[i]] += ((self.pref(n, bit)) - self.pref(z[i] - 1, bit) + 1)
+    
+        ans = 1
+        for val in m.values():
+            ans = max(ans, val)
+    
+        return ans
+

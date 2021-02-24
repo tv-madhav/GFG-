@@ -31,4 +31,5 @@ Python solutions for 30 days practicing problems :
   Police and Thieves ; (greedy algorithm)
   Water the Plants ;
   Elixir of Life ;
+  Escape The Forbidden Forest .
 

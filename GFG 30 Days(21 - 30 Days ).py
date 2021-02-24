@@ -437,4 +437,39 @@ class Solution:
             ans = max(ans, val)
     
         return ans
+    
+    
+    #In[30]
+     Escape the Forbidden Forest
+        
+        Penelope and her classmates are lost in the Forbidden Forest and the Devil is out to get them. But Penelope has magical powers that can build bridges across 
+        the dangerous river and take her friends to safety. The only bridges that can withstand the Devil's wrath are the ones built between two similar trees in the forest. 
+        Given str1 and str2 denoting the order of trees on either side of the river, find the maximum number of bridges that Penelope can build and save everyone from the Devil. 
+Note: Each tree in the forest belongs to one of the 3 categories represented by * or # or @
+        
+    
+    class Solution:
+    def build_bridges_util(self,str1, str2, i, j, dp):
+        if i >= len(str1) or j >= len(str2):
+            return 0
+    
+        if dp[i][j] != -1:
+            return dp[i][j]
+    
+    
+        if str1[i] == str2[j]:
+            dp[i][j] = 1 + self.build_bridges_util(str1, str2, i + 1, j + 1, dp)
+            return dp[i][j]
+    
+        dp[i][j] = max(self.build_bridges_util(str1, str2, i + 1, j, dp), self.build_bridges_util(str1, str2, i, j + 1, dp))
+        
+    
+        return dp[i][j]
+    
+    
+    def build_bridges(self, str1, str2):
+        n1, n2 = len(str1), len(str2)
+        dp = [[-1 for i in range(n2 + 1)] for j in range(n1 + 1)]
+    
+        return self.build_bridges_util(str1, str2, 0, 0,dp)
 

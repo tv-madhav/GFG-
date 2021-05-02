@@ -1,0 +1,82 @@
+#02-05-2021
+#two problems
+geeksforgeeks
+
+1.)Minimum times A has to be repeated such that B is a substring of it
+Given two strings A and B. Find minimum number of times A has to be repeated such that B is a Substring of it.
+
+Input:
+A = "abcd"
+B = "cdabcdab"
+Output:
+3
+Explanation:
+Repeating A three times (“abcdabcdabcd”),
+B is a substring of it. B is not a substring
+of A when it is repeated less than 3 times.
+
+
+class Solution:
+    def substr(self,str_,rep):
+        if str_ in rep:
+            return True
+        return False
+        
+    def minRepeats(self, A, B):
+        # code here 
+        
+        res = 1
+        x = A
+        while len(x)<len(B):
+            x += A
+            res += 1
+            
+            
+        if self.substr(B,x):
+            return res
+        elif self.substr(B,x+A):
+            return res+1
+        else :
+            return -1
+        
+        
+2.)Special Matrix
+
+Given N and a square matrix with dimensions NxN. Find the minimum number of moves required to make a matrix special. In a single move, you can select an arbitary element and increase/decrease it by 1.
+
+A special matrix is defined as a matrix where at least one row or column that contains only special numbers.
+
+A special number P is a non-negative integer for which the following quadratic equation has at least one negative integer root:
+
+x2-(2*P)+x=0
+
+class Solution:
+    def minMoves (self, N, matrix):
+        #code here
+        a = []
+        for i in range(0,50):
+            b = ((i*(i+1))/2)
+            a.append(int(b))
+            
+        res =  1000000000.0
+        for i in range(N):
+            x = 0
+            for j in range(N):
+                hi = bisect.bisect(a,matrix[i][j])
+                lo = 0
+                if hi:
+                    lo = hi-1
+                x += min(matrix[i][j]-a[lo],a[hi]- matrix[i][j])
+            res = min(res,x)
+            
+        for i in range(N):
+            x = 0
+            for j in range(N):
+                hi = bisect.bisect(a,matrix[j][i])
+                lo = 0 
+                if hi:
+                    lo = hi-1
+                x += min(matrix[j][i] - a[lo] , a[hi] - matrix[j][i]) 
+            res = min(res , x)
+        
+        return res

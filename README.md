@@ -3,6 +3,7 @@ geeks for geeks 30 days challenge Jan 2021.
 
 Python solutions for 30 days practicing problems : 
 
+
   rearrage geek with classmate.(Array);
   Nth Natural Number;
   Smallest Positive Integer that can not be represented as Sum;
